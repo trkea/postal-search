@@ -1,0 +1,22 @@
+body {
+	text-align: center;
+}
+
+header h1{
+	background-color: #99FF99;
+	color:#996633;
+	font-size: 60px;
+}
+
+.searchForm input{
+	margin-top:50px;
+}
+
+
+.result h5{
+	text-align: right;
+}
+
+.list-group-item {
+	size:300px;
+}

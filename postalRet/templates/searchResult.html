@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% load common %}
+{% block content %}
+
+<div class="result">
+	{% set get_prefecture = 'prefecture' %}
+	{% set get_city = 'city' %}
+	<div class="searchResult">
+	    <ul class="list-group">
+	    {% for city in result %}
+	        {% if get_prefecture == 'prefecture' or get_prefecture != city.prefecture %}
+	            <h2 class="prefecture"> {{ city.prefecture }} </h2>
+	        {% endif %}
+	        {% set get_prefecture = city.prefecture %}
+
+	        {% if get_city == 'city' or get_city != city.city %}
+	        {% if city.city != None %}
+	            <form method="GET" action="/postal/result">
+	                <li class="list-group-item"><a href="/postal/"> {{ city.city }} </a></li>
+	            </form>
+	        {% endif %}
+	        {% endif %}
+            {% set get_city = city.city %}
+	    {% endfor %}
+        </ul>
+    </div>
+</div>
+{% endblock %}
