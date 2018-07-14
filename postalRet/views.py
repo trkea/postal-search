@@ -11,7 +11,7 @@ def search(keyword):
     url = 'http://geoapi.heartrails.com/api/json?method=suggest&matching=like&keyword=' + keyword
     html = requests.get(url).text
     result = json.loads(html)
-    if not 'location' in result:
+    if not 'location' in result['response']:
         list = []
         result = {}
         result['prefecture'] = '見つかりませんでした'
@@ -30,5 +30,6 @@ def result(request):
     results =  sorted(result,key=lambda x:x['prefecture'])
     return render(request, 'searchResult.html',{'result':results})
 
-
+def town_list(request):
+    return render(request, 'town_list.html')
 

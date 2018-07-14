@@ -15,8 +15,8 @@
 
 	        {% if get_city == 'city' or get_city != city.city %}
 	        {% if city.city != None %}
-	            <form method="GET" action="/postal/result">
-	                <li class="list-group-item"><a href="/postal/"> {{ city.city }} </a></li>
+	            <form method="POST" action="/postal/">
+	                <li class="list-group-item"><input type="hidden" name="a"><a> {{ city.city }} </a></li>
 	            </form>
 	        {% endif %}
 	        {% endif %}
