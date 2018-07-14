@@ -28,7 +28,7 @@ def result(request):
     keyword = request.GET.get('place')
     result = search(keyword)
     results =  sorted(result,key=lambda x:x['prefecture'])
-    return render(request, 'searchResult.html',{'result':results})
+    return render(request, 'search-result.html',{'result':results})
 
 def town_list(request):
     return render(request, 'town_list.html')
