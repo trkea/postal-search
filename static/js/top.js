@@ -1,6 +1,12 @@
 function checkValue() {
-	searchName = document.getElementById("searchName");
-	if(searchName == "" || searchName == null) {
-		document.getElementByClassName("searchForm").innerHTML('<div class="alert alert-warning" role="alert"><strong>Warning!</strong>入力して下さい</div>')
+	searchName = document.getElementById("searchName").value;
+	if(searchName === "" || searchName === null) {
+		nullAlert()
+		return false;
 	}
+	return true
+}
+
+function nullAlert() {
+	$('.alert').html('<div class="alert alert-warning" role="alert">入力して下さい</div>').fadeOut(2000)
 }

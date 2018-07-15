@@ -1,12 +1,15 @@
 {% extends 'base.html' %}
 {% block content %}
+{% load staticfiles %}
 <div class="searchForm">
-	<form method="GET" class="post-form" action="/postal/result">
+	   <script type="text/javascript" src="{% static '/js/top.js' %}"></script>
+	<form method="GET" name="asa" class="post-form" action="/postal/result">
 		{% csrf_token %}
 		{{ form.as_p}}
-	<input type="text" placeholder="住所を入力" name="place">
+	<input type="text" placeholder="住所を入力" name="place" id="searchName" value="">
 	<br>
-	<input type="submit" id="searchName" value="検索" onclick="checkValue()">
+	<input type="submit" value="検索" onclick="return checkValue()">
 </form>
+<div class='alert'></div>
 </div>
 {% endblock %}

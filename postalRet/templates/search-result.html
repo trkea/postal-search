@@ -1,7 +1,6 @@
 {% extends 'base.html' %}
 {% load common %}
 {% block content %}
-
 <div class="result">
 	{% set get_prefecture = 'prefecture' %}
 	{% set get_city = 'city' %}
@@ -18,7 +17,7 @@
 	            <form method="GET" action="/postal/town">
 	            	{% csrf_token %}
 	            	{{ form.as_p}}
-	                <li class="list-group-item"><a href="/postal/town"> {{ city.city }} </a></input></li>
+	                <li class="list-group-item"><a href="/postal/town"> {{ city.city }} </a></li>
 	            </form>
 	        {% endif %}
 	        {% endif %}
