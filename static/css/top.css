@@ -19,4 +19,9 @@ header h1{
 
 .list-group-item {
 	size:300px;
+	text-align:center;
+}
+
+.list-group {
+	text-align: center;
 }
