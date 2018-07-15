@@ -9,4 +9,7 @@ function checkValue() {
 
 function nullAlert() {
 	$('.alert').html('<div class="alert alert-warning" role="alert">入力して下さい</div>').fadeOut(2000)
+	 setTimeout(function(){
+        $('.alert').html('');
+    },2000);
 }
