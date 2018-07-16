@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+{% block content %}
+{% load staticfiles %}
+<div class="city-info">
+	 <h1>{{ city.prefecture }}{{ city.city }}{{ city.town }}</h1>
+	 <br>
+	 <h2>郵便番号：{{ city.postal }}</h2>
+	 <h3>x:{{ city.x }}</h3>
+	 <h3>y:{{ city.y }}</h3>
+</div>
+{% endblock %}

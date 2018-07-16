@@ -6,7 +6,7 @@
  	    {% csrf_token %}
 	    {{ form.as_p}}
 	    <li class="list-group-item">
-	    	<a href="/postal/town?select={{ town.city }}">{{town.town}} </a>
+	    	<a href="/postal/town/info?selected={{ town }}"> {{town.town}} </a>
 	    </li>
  	{% endfor %}
 {% endblock %}

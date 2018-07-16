@@ -5,6 +5,7 @@ from django.shortcuts import render
 import requests
 import json
 from collections import OrderedDict
+import ast
 #coding: utf-8
 
 def search(keyword):
@@ -34,4 +35,9 @@ def town_list(request):
     town = request.GET.get('select')
     town_list = search(town)
     return render(request, 'town_list.html',{'town_list':town_list,'town_name':town})
+
+def city_info(request):
+    selected = request.GET.get('selected')
+    city = ast.literal_eval(selected)
+    return render(request,'city_info.html',{'city':city})    
 
