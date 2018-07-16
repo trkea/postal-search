@@ -1,4 +1,12 @@
 {% extends 'base.html' %}
 {% block content %}
-<h1>Hello {{ town }}</h1>
+<h1>{{ town_name }}</h1>
+ <ul class="list-group">
+ 	{% for town in town_list %}
+ 	    {% csrf_token %}
+	    {{ form.as_p}}
+	    <li class="list-group-item">
+	    	<a href="/postal/town?select={{ town.city }}">{{town.town}} </a>
+	    </li>
+ 	{% endfor %}
 {% endblock %}
