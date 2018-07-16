@@ -31,5 +31,6 @@ def result(request):
     return render(request, 'search-result.html',{'result':results})
 
 def town_list(request):
-    return render(request, 'town_list.html')
+    town = request.GET.get('select')
+    return render(request, 'town_list.html',{'town':town})
 

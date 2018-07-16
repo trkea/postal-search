@@ -14,10 +14,10 @@
 
 	        {% if get_city == 'city' or get_city != city.city %}
 	        {% if city.city != None %}
-	            <form method="GET" action="/postal/town">
+	            <form method="GET" action="/postal/town/?select=city">
 	            	{% csrf_token %}
 	            	{{ form.as_p}}
-	                <li class="list-group-item"><a href="/postal/town"> {{ city.city }} </a></li>
+	                <li class="list-group-item"><a href="/postal/town?select={{ city.city }}"> {{ city.city }} </a></li>
 	            </form>
 	        {% endif %}
 	        {% endif %}
