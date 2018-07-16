@@ -16,7 +16,7 @@
 	        {% if city.city != None %}
 	            	{% csrf_token %}
 	            	{{ form.as_p}}
-	                <li class="list-group-item"><a href="/postal/town?select={{city.prefecture}}:{{ city.city }}&list={{ result }}"> {{ city.city }} </a></li>
+	                <li class="list-group-item"><a href="/postal/town?select={{city.prefecture}}{{ city.city }}&list={{ result }}"> {{ city.city }} </a></li>
 	        {% endif %}
 	        {% endif %}
             {% set get_city = city.city %}

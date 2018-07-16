@@ -3,8 +3,6 @@
 <h1>{{ town_name }}</h1>
  <ul class="list-group">
  	{% for town in town_list %}
- 	    {% csrf_token %}
-	    {{ form.as_p}}
 	    <li class="list-group-item">
 	    	<a href="/postal/town/info?selected={{ town }}"> {{town.town}} </a>
 	    </li>
