@@ -17,7 +17,7 @@
 	            <form method="GET" action="/postal/town/?select=city">
 	            	{% csrf_token %}
 	            	{{ form.as_p}}
-	                <li class="list-group-item"><a href="/postal/town?select={{ city.city }}"> {{ city.city }} </a></li>
+	                <li class="list-group-item"><a href="/postal/town?select={{city.prefecture}}{{ city.city }}"> {{ city.city }} </a></li>
 	            </form>
 	        {% endif %}
 	        {% endif %}
