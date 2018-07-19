@@ -34,7 +34,7 @@ def result(request):
 def town_list(request):
     town = request.GET.get('select')
     town_list = search(town)
-    return render(request, 'town_list.html',{'town_list':town_list,'town_name':town})
+    return render(request, 'town_list.html',{'town_list': sorted(town_list,key=lambda x:x['town']),'town_name':town})
 
 def city_info(request):
     selected = request.GET.get('selected')
