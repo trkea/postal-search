@@ -1,12 +1,8 @@
-from django.shortcuts import render
-from django.template import loader
-from django.http import HttpResponse
+#coding: utf-8
 from django.shortcuts import render
 import requests
 import json
-from collections import OrderedDict
 import ast
-#coding: utf-8
 
 def search(keyword):
     url = 'http://geoapi.heartrails.com/api/json?method=suggest&matching=like&keyword=' + keyword
