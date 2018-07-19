@@ -1,11 +1,13 @@
 body {
 	text-align: center;
+		text-decoration: none;
 }
 
 header h1{
 	background-color: #99FF99;
 	color:#996633;
 	font-size: 60px;
+	text-decoration: none;
 }
 
 .searchForm input{
