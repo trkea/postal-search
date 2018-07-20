@@ -127,7 +127,7 @@ STATICFILES_DIRS = (
 
 ALLOWED_HOSTS = ['*']
 
-DEBUG = True
+DEBUG = False
 
 try:
     from .local_settings import *
