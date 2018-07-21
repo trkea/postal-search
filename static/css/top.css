@@ -27,3 +27,9 @@ header h1{
 .list-group {
 	text-align: center;
 }
+
+.city-info #map{
+     height: 50%;
+     width: 50%;
+     text-align:center
+}
