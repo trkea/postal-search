@@ -1,5 +1,7 @@
 window.onload = function() {
-var map = L.map('map').setView([36.3219088　, 139.0032936], 14);
+	x = Number.parseFloat(document.getElementById('x').value);
+	y = Number.parseFloat(document.getElementById('y').value);
+var map = L.map('map').setView([y,x], 14);
 
 //OSMレイヤー追加
 L.tileLayer(
