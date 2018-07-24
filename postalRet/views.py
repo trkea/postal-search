@@ -17,14 +17,14 @@ def search(keyword):
         return list
     return result['response']['location']
 
-# Create your views here.
+
 def top(request):
 	return render(request, "top.html")
 
 def result(request):
     keyword = request.GET.get('place')
     result = search(keyword)
-    results =  sorted(result,key=lambda x:x['prefecture'])
+    results = sorted(result,key=lambda x:x['prefecture'])
     return render(request, 'search-result.html',{'result':results})
 
 def town_list(request):
@@ -37,5 +37,7 @@ def town_list(request):
 def city_info(request):
     selected = request.GET.get('selected')
     city = ast.literal_eval(selected)
+    postal = city['postal']
+    city['postal'] = '{0}{1}{2}'.format(postal[:3],'-',postal[3:])
     return render(request,'city_info.html',{'city':city})    
 
