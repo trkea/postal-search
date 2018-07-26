@@ -7,7 +7,9 @@
 	 <h2>郵便番号：{{ city.postal }}</h2>
 	 <script src="https://unpkg.com/leaflet@1.2.0/dist/leaflet.js"></script>
 	 <script type="text/javascript" src="{% static '/js/cityInfo.js' %}"></script>
-	 <div id="map"></div>
+	 <br>
+	 <br>
+	 <div id="map" style="margin-left:25%;"></div>
 	 <input type="hidden" id="x" name="variable" value="{{ city.x }}">
 	 <input type="hidden" id="y" name="variable" value="{{ city.y }}">
 </div>
