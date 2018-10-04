@@ -12,23 +12,16 @@ window.onload = function() {
 	).addTo(map);
 }
 
-function getParam() {
-        var url   = location.href;
-        parameters    = url.split("?");
-        params   = parameters[1].split("&");
-        var paramsArray = [];
-        for ( i = 0; i < params.length; i++ ) {
-            neet = params[i].split("=");
-            paramsArray.push(neet[0]);
-            paramsArray[neet[0]] = neet[1];
-        }
-        var categoryKey = paramsArray["key"];
-        return categoryKey;
-	}
 
 $(function() {
+var prefecture = $('#prefecture').val();
+var city = $('#city').val();
+var town = $('#town').val();
+var x = $('#x').val();
+var y = $('#y').val();
+var url = ('/postal?prefecture=' + prefecture + '&city=' + city + '&town=' + town + '&x=' + x + '&y=' + y);
 $('#favorite').click(function() {
-  $.get('/postal/favorite',
+    $.get(url,
       {
         datatype:'html',
         data:{
@@ -39,6 +32,7 @@ $('#favorite').click(function() {
         'y':$('#y').val(),
         },
         success:function() {
+        　　alert(url);
             if($('#favorite').css('color') == 'rgb(255, 255, 0)') {
                 $('#favorite').css('color','black')
             }else{

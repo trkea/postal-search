@@ -1,5 +1,5 @@
 from django.apps import AppConfig
 
 
-class PostalretConfig(AppConfig):
+class PostalRetConfig(AppConfig):
     name = 'postalRet'

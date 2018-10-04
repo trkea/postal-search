@@ -10,6 +10,9 @@
 	 <br>
 	 <br>
 	 <div id="map" style="margin-left:25%;"></div>
+	<form method="GET" name="asa" class="post-form" action="/postal/result">
+		{% csrf_token %}
+		{{ form.as_p}}
 	 <input type="hidden" id="x" name="variable" value="{{ city.x }}">
 	 <input type="hidden" id="y" name="variable" value="{{ city.y }}">
 	 <input type="hidden" id="prefecture" name="variable" value="{{ city.prefecture }}">

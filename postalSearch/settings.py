@@ -36,7 +36,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'postalRet.apps.PostalretConfig',
+    'postalRet',
 ]
 
 MIDDLEWARE = [
@@ -127,7 +127,7 @@ STATICFILES_DIRS = (
 
 ALLOWED_HOSTS = ['*']
 
-DEBUG = False
+DEBUG = True
 
 try:
     from .local_settings import *
