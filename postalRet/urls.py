@@ -6,5 +6,4 @@ urlpatterns = [
     url(r'^result', views.result, name='result'),
     url(r'^town/$', views.town_list, name="town_list"),
     url(r'^town/info/$', views.city_info, name='city_info'),
-    url(r'^favorite', views.favorite, name='favorite'),
 ]
