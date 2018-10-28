@@ -3,19 +3,31 @@ from django.shortcuts import render
 import requests
 import json
 import ast
-from .models import Place
-from .forms import PlaceForm
-from django.http import HttpResponse
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render
 
 
 def search(keyword):
+    prefecture_list = \
+        ['北海道', '青森', '岩手', '宮城', '秋田',
+         '山形', '福島', '茨城', '栃木', '群馬',
+         '埼玉', '千葉', '神奈川', '新潟', '富山',
+         '石川', '福井', '山梨', '長野', '岐阜',
+         '静岡', '愛知', '三重', '滋賀', '兵庫',
+         '奈良', '和歌山', '鳥取', '島根', '岡山',
+         '広島', '山口', '徳島', '香川', '愛媛',
+         '高知', '福岡', '佐賀', '長崎', '熊本',
+         '大分', '宮崎', '鹿児島', '沖縄']
+    if keyword in prefecture_list:
+        keyword += '県'
+    elif keyword in ['京都', '大阪']:
+        keyword += '府'
     url = 'http://geoapi.heartrails.com/api/json?method=suggest&matching=like&keyword=' + keyword
+    if keyword == '東京' or keyword == '東京都':
+        url = 'http://geoapi.heartrails.com/api/json?method=suggest&matching=prefix&keyword=' + keyword
     html = requests.get(url).text
     result = json.loads(html)
     if not 'location' in result['response']:
         list = []
-        result = {}
         result['prefecture'] = '見つかりませんでした'
         result['city'] = None
         list.append(result)
@@ -24,23 +36,6 @@ def search(keyword):
 
 
 def top(request):
-    if request.GET.get('datatype') == None:
-        return render(request, 'top.html')
-    model = Place(
-        city='a',
-        town='a',
-        prefecture='a',
-        postal='12345',
-        x=12,
-        y=15
-    )
-    model.prefecture = 'b'
-    model.city = 's'
-    model.town = 'f'
-    model.postal = 'g'
-    model.x = 120
-    model.y = 12
-    model.save
     return render(request, 'top.html')
 
 
@@ -65,16 +60,3 @@ def city_info(request):
     postal = city['postal']
     city['postal'] = '{0}{1}{2}'.format(postal[:3], '-', postal[3:])
     return render(request, 'city_info.html', {'city': city})
-
-
-def favorite(request):
-    model = get_object_or_404(Place)
-    model.prefecture = request.GET.get('prefecture')
-    model.city = request.GET.get('city')
-    model.town = request.GET.get('town')
-    model.postal = request.GET.get('postal')
-    model.x = request.GET.get('x')
-    model.y = request.GET.get('y')
-    model.save()
-    response = render(request, 'city_info.html')
-    return HttpResponse(response)
